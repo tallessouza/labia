@@ -214,11 +214,7 @@
                         $checkPlan = \App\Models\PaymentPlans::query()->where('is_team_plan', 1)->first();
                         @endphp
 
-                        @if ($setting->team_functionality && !auth()->user()->getAttribute('team_id') && $checkPlan)
-                        <x-navbar.dropdown.item>
-                            <x-navbar.link label="{{ __('Team') }}" href="dashboard.user.team.index" slug="ai_voiceover" icon="tabler-user-plus" active-condition="{{ activeRoute('dashboard.user.team.*') }}" new />
-                        </x-navbar.dropdown.item>
-                        @endif
+                        
 
                         @if ($app_is_demo || $setting?->user_api_option)
                         <x-navbar.dropdown.item>
@@ -258,6 +254,11 @@
                         <x-navbar.dropdown.item>
                             <x-navbar.link label="{{ __('Brand Voice') }}" href="dashboard.user.brand.index" icon="tabler-brand-trello" />
                         </x-navbar.dropdown.item>
+                        @if ($setting->team_functionality && !auth()->user()->getAttribute('team_id') && $checkPlan)
+                        <x-navbar.dropdown.item>
+                            <x-navbar.link label="{{ __('Team') }}" href="dashboard.user.team.index" icon="tabler-user-plus" active-condition="{{ activeRoute('dashboard.user.team.*') }}" new />
+                        </x-navbar.dropdown.item>
+                        @endif
                         <x-navbar.item has-dropdown>
                             <x-navbar.link label="{{ __('Meus GPTS') }}" href="" icon="tabler-message-circle" dropdown-trigger />
                             <x-navbar.dropdown.dropdown>

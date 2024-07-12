@@ -8,13 +8,13 @@
                 @lang('Status')
             </th>
             <th>
-                @lang('Joined')
+                @lang('Data')
             </th>
             <th>
                 @lang('Role')
             </th>
             <th>
-                @lang('Images / Words')
+                @lang('Imagens / Palavras')
             </th>
             <th class="text-end">
                 @lang('Actions')
@@ -35,7 +35,7 @@
                 </td>
                 <td>
                     <x-badge variant="{{ $member->status == 'waiting' ? 'secondary' : ($member->status == 'active' ? 'success' : 'danger') }}">
-                        @lang($member->status)
+                        @lang($member->status == 'waiting' ? 'aguardando' : ($member->status == 'active' ? 'ativo' : 'inativo'))
                     </x-badge>
                 </td>
                 <td>
@@ -49,7 +49,7 @@
                     @endif
                 </td>
                 <td>
-                    {{ $member->role ?: __('unknown') }}
+                    {{ $member->role ? 'membro': __('desconhecido') }}
                 </td>
                 <td>
                     <p class="m-0">
@@ -67,7 +67,7 @@
                     </p>
                 </td>
                 <td class="whitespace-nowrap text-end">
-                    <x-button
+                    <!-- <x-button
                         class="size-9"
                         variant="ghost-shadow"
                         size="none"
@@ -75,14 +75,14 @@
                         title="{{ __('Edit') }}"
                     >
                         <x-tabler-pencil class="size-4" />
-                    </x-button>
+                    </x-button> -->
                     <x-button
                         class="size-9"
                         variant="ghost-shadow"
                         hover-variant="danger"
                         size="none"
                         href="{{ route('dashboard.user.team.member.delete', [$team->id, $member->id]) }}"
-                        onclick="return confirm('Are you sure? This is permanent and will delete all documents related to user.')"
+                        onclick="return confirm('Tem certeza? Essa ação é permanente e vai deletar todos os documentos do usuário.')"
                         title="{{ __('Delete') }}"
                     >
                         <x-tabler-x class="size-4" />

@@ -5,7 +5,7 @@
     <div class="flex flex-wrap items-center gap-y-5">
         <div class="w-full md:w-1/2 lg:w-5/12">
             <h3 class="mb-14">
-                @lang('Invite your colleagues and <br> collaborators to join your team and <br>maximize the benefits of AI.')
+                @lang('Convide seus amigos e <br> colaboradores para se juntar ao seu time e <br>maximizar os benefícios do uso da IA.')
             </h3>
             <div class="flex flex-wrap justify-center gap-2 md:justify-start">
                 <x-button
@@ -16,7 +16,7 @@
                     onclick="document.getElementById('email').focus()"
                 >
                     <x-tabler-plus class="size-4" />
-                    @lang('Add a New Member')
+                    @lang('Adicionar novo membro')
                 </x-button>
                 @if (!$subscription || $user?->relationPlan?->is_team_plan == 0)
                     <x-button
@@ -25,7 +25,7 @@
                         hover-variant="success"
                         href="{{ route('dashboard.user.payment.subscription') }}"
                     >
-                        @lang('Upgrade Team Plan')
+                        @lang('Atualizar plano de Equipe')
                     </x-button>
                 @endif
             </div>
@@ -41,19 +41,19 @@
                 </p>
                 <p class="mb-0">
                     <span class="opacity-60">
-                        @lang('Allowed Seats'):
+                        @lang('Vagas permitidas'):
                     </span>
                     <b>{{ $app_is_demo ? 2 : $team->allow_seats }}</b>
                 </p>
                 <p class="mb-0">
                     <span class="opacity-60">
-                        @lang('Total Words Generated'):
+                        @lang('Total de Palavras Geradas'):
                     </span>
                     <b>{{ $app_is_demo ? 2400 : $team->members?->sum('used_word_credit') }}</b>
                 </p>
                 <p class="mb-0">
                     <span class="opacity-60">
-                        @lang('Total Images Generated'):
+                        @lang('Total de Imagens Geradas'):
                     </span>
                     <b>{{ $app_is_demo ? 2400 : $team->members?->sum('used_image_credit') }}</b>
                 </p>

@@ -32,12 +32,13 @@
                 <h3 class="mb-4 font-bold">
                     {{ $teamManager->name . ' ' . $teamManager->surname }}
                     <x-badge class="ms-2 text-2xs">
-                        @lang('Team Manager')
+                        @lang('Gestor do Time')
                     </x-badge>
                 </h3>
 
                 <p>
-                    @lang("You have the Team plan which has a remaining balance of <strong class='font-bold text-heading-foreground'>:word</strong> words and <strong class='font-bold text-heading-foreground'>:image</strong> images.", ['word' => Auth::user()->remaining_words, 'image' => Auth::user()->remaining_images])
+                    @lang("Você tem o plano empresarial com um saldo de <strong class='font-bold text-heading-foreground'>:word</strong> palavras e <strong class='font-bold text-heading-foreground'>:image</strong> imagens.", ['word' => Auth::user()->remaining_words, 'image' => Auth::user()->remaining_images])
+                      
                 </p>
             </div>
             <div>
@@ -62,7 +63,7 @@
             </div>
             <div>
                 <p>
-                    @lang('You can contact your team manager if you need more credits.')
+                    @lang('Você pode entrar em contato com seu gestor se precisar de mais créditos.')
                 </p>
             </div>
         </div>

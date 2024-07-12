@@ -36,6 +36,8 @@
             'gemini-1.5-flash' => 'Gemini 1.5 Flash'
         ]
     ];
+    $team = Auth::user()->getAttribute('team_id');
+
 @endphp
 @extends('panel.layout.app', ['disable_tblr' => true])
 @section('title', __($openai->title))
@@ -299,7 +301,7 @@
 
                             @default
                         @endswitch
-                        @if ($plan != '')
+                        @if ($plan != '' || $team)
                         <h2>{{ __('Modelos') }} </h2>
                         <x-forms.input
                             id="provider"

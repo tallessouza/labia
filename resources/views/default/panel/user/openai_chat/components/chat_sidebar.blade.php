@@ -20,6 +20,7 @@
             'gemini-1.5-flash' => 'Gemini 1.5 Flash'
         ]
     ];
+    $team = Auth::user()->getAttribute('team_id');
 @endphp
 
 <x-card
@@ -119,7 +120,7 @@
                     <x-tabler-plus class="size-5" />
                     {{ __('New Conversation') }}
                 </x-button>
-                @if ($plan != '')
+                @if ($plan != '' || $team)
                 <h2>{{ __('Modelos') }} </h2>
                 <x-forms.input
                     id="provider"

@@ -4,7 +4,7 @@
             @lang('How it Works')
         </h2>
         <p>
-            @lang('Adding and overseeing team members is a straightforward process. Here\'s a quick example to initiate collaboration within seconds.')
+            @lang('Adicionar e supervisionar membros da equipe é um processo simples. Aqui está um exemplo rápido para iniciar a colaboração em segundos.')
         </p>
 
         <hr class="my-8">
@@ -14,19 +14,19 @@
                 <span class="size-7 me-2 inline-flex items-center justify-center rounded-full bg-primary/10 font-extrabold text-primary">
                     1
                 </span>
-                @lang('Send an <strong>invitation</strong> link to your team members.')
+                @lang('Envie um link de <strong>convite</strong> para os membros da sua equipe.')
             </li>
             <li>
                 <span class="size-7 me-2 inline-flex items-center justify-center rounded-full bg-primary/10 font-extrabold text-primary">
                     2
                 </span>
-                @lang('<strong>Let them register</strong> with their email address.')
+                @lang('<strong>Permita que eles se registrem</strong> com o endereço de e-mail deles.')
             </li>
             <li>
                 <span class="size-7 me-2 inline-flex items-center justify-center rounded-full bg-primary/10 font-extrabold text-primary">
                     3
                 </span>
-                @lang('Once <strong>they confirm their account</strong> they will be added to your team.')
+                @lang('Assim que <strong>eles confirmarem a conta</strong>, serão adicionados à sua equipe.')
             </li>
         </ol>
     </x-card>
@@ -40,7 +40,7 @@
             >
         </figure>
         <p class="mb-6 text-center text-xl font-semibold">
-            @lang('Add your team members’ email address <br> to start collaborating.')
+            @lang('Adicione o endereço de e-mail dos membros da sua equipe <br> para começar a colaborar.')
             📧
         </p>
         <form
@@ -68,11 +68,11 @@
             </x-forms.input>
             @if ($app_is_demo)
                 <x-button onclick="return toastr.info('This feature is disabled in Demo version.')">
-                    @lang('Invite Friends')
+                    @lang('Convidar Amigos')
                 </x-button>
             @else
                 <x-button type="submit">
-                    @lang('Invite Friends')
+                    @lang('Convidar amigos')
                 </x-button>
             @endif
         </form>

@@ -126,7 +126,7 @@
                             size="none"
                             variant="ghost-shadow"
                             href="{{ route('dashboard.admin.users.delete', $user->id) }}"
-                            onclick="return confirm('{{ __('Are you sure? This is permanent and will delete all documents related to user.') }}')"
+                            onclick="return confirm('{{ __('Tem certeza? Essa ação é permanente e vai deletar todos os documentos do usuário.') }}')"
                             title="{{ __('Delete') }}"
                         >
                             <x-tabler-x class="size-4" />

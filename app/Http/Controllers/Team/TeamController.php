@@ -69,7 +69,7 @@ class TeamController extends Controller
         if (! $subscription || $request->user()?->relationPlan?->is_team_plan == 0) {
             return back()->with([
                 'type' => 'error', // success, error, warning, info, '
-                'message' => trans('Please subscribe to a new plan'),
+                'message' => trans('Por favor, assine outro plano.'),
             ]);
         }
 
@@ -79,7 +79,7 @@ class TeamController extends Controller
 
         return back()->with([
             'type' => 'success', // success, error, warning, info, '
-            'message' => trans('Invitation sent successfully.'),
+            'message' => trans('Convite enviado com sucesso.'),
         ]);
     }
 
@@ -151,7 +151,7 @@ class TeamController extends Controller
 
         return back()->with([
             'type' => 'success', // success, error, warning, info,
-            'message' => trans('Team member deleted successfully.')
+            'message' => trans('Membro removido do time.')
         ]);
     }
 }
