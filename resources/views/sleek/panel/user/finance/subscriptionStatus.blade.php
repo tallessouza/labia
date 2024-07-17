@@ -141,7 +141,7 @@
             @if (getSubscriptionStatus())
                 <x-button
                     variant="danger"
-                    onclick="return confirm('Are you sure to cancel your plan? You will lose your remaining usage.');"
+                    onclick="return confirm('Tem certeza em cancelar seu plano? Você vai perder todo o seu saldo restante.');"
                     href="{{ LaravelLocalization::localizeUrl(route('dashboard.user.payment.cancelActiveSubscription')) }}"
                 >
                     <x-tabler-circle-minus class="size-4" />

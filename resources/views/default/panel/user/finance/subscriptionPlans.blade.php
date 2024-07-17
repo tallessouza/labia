@@ -165,7 +165,7 @@
                                 <span class="text-green-500">
                                     <b>{{ __('Already Subscribed') }}</b>
                                 </span>
-                                <a class="text-foreground/60" onclick="return confirm('Are you sure to cancel your plan? You will lose your remaining usage.');" href="{{ LaravelLocalization::localizeUrl(route('dashboard.user.payment.cancelActiveSubscription')) }}">
+                                <a class="text-foreground/60" onclick="return confirm('Tem certeza em cancelar seu plano? Você vai perder todo o seu saldo restante.');" href="{{ LaravelLocalization::localizeUrl(route('dashboard.user.payment.cancelActiveSubscription')) }}">
                                     {{ __('Cancel Subscription') }}
                                 </a>
                             </div>

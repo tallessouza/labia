@@ -139,7 +139,7 @@
                     />
                     <div class="space-y-3">
                         <p class="font-heading text-2xl font-bold text-heading-foreground">
-                            @lang('Training GPT...')
+                            @lang('Treinando GPT...')
                         </p>
                         <p>
                             @lang('We’re training your custom GPT with the related resources. This may take a few minutes.')
