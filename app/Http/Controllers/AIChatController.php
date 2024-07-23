@@ -57,7 +57,7 @@ class AIChatController extends Controller
     {
         abort_if(Helper::setting('feature_ai_chat') == 0, 404);
 
-   	  $aiList = OpenaiGeneratorChatCategory::query()
+        $aiList = OpenaiGeneratorChatCategory::query()
             ->whereNotIn('slug', [
                 'ai_vision', 'ai_webchat', 'ai_pdf'
             ])
@@ -370,7 +370,10 @@ class AIChatController extends Controller
             $type = 'docx';
         } elseif ($type == 'text/csv') {
             $type = 'csv';
+        } elseif ($type == 'text/plain') {
+            $type = 'txt';
         }
+
         $doc = $request->file('doc');
         $doc_content = file_get_contents($doc->getRealPath());
         $fileName = Str::random(12) . '.' . $type;
@@ -412,19 +415,26 @@ class AIChatController extends Controller
         } elseif ($type == 'csv') {
             $file = file_get_contents(public_path('uploads/temp.' . $type));
 
-            // Verificar se o conteúdo foi lido corretamente
             if ($file === false) {
                 Log::error("Erro ao ler o arquivo: " . public_path('uploads/temp.' . $type));
                 return;
             }
 
-            // Explode o conteúdo do arquivo em linhas
             $rows = explode(PHP_EOL, $file);
-
-            // Log para verificar o conteúdo lido
             Log::info('$file content:', $rows);
 
             $page = $rows[0];
+        } elseif ($type == 'txt') {
+            $file = file_get_contents(public_path('uploads/temp.' . $type));
+
+            if ($file === false) {
+                Log::error("Erro ao ler o arquivo: " . public_path('uploads/temp.' . $type));
+                return;
+            }
+
+            Log::info('$file content:', [$file]);
+
+            $page = $file;
         }
 
         $countwords = strlen($page) / 1001 + 1;
@@ -440,9 +450,7 @@ class AIChatController extends Controller
                     ]);
 
                     if (strlen(substr($page, 1001 * $i, strlen($page) - 1001 * $i)) > 10) {
-
                         $chatpdf = new PdfData();
-
                         $chatpdf->chat_id = $chat_id;
                         $chatpdf->content = substr($page, 1001 * $i, strlen($page) - 1001 * $i);
                         $chatpdf->vector = json_encode($response->embeddings[0]->embedding);
@@ -462,7 +470,6 @@ class AIChatController extends Controller
                     ]);
                     if (strlen(substr($page, 1001 * $i, 2000)) > 10) {
                         $chatpdf = new PdfData();
-
                         $chatpdf->chat_id = $chat_id;
                         $chatpdf->content = substr($page, 1001 * $i, 2000);
                         $chatpdf->vector = json_encode($response->embeddings[0]->embedding);
@@ -477,22 +484,23 @@ class AIChatController extends Controller
         return $resPath;
     }
 
-    public function startNewDocChat(Request $request)
-{
-    $chat_id = $request->input('chat_id');
-    $chat = UserOpenaiChat::findOrFail($chat_id);
-    
-    try {
-        $filePath = $this->uploadDoc($request, $chat_id, $request->type);
-        $chat->reference_url = $filePath;
-        $chat->doc_name = $request->file('doc')->getClientOriginalName();
-        $chat->save();
 
-        return response()->json(['chat' => $chat]);
-    } catch (Exception $e) {
-        return response()->json(['error' => $e->getMessage()], 500);
+    public function startNewDocChat(Request $request)
+    {
+        $chat_id = $request->input('chat_id');
+        $chat = UserOpenaiChat::findOrFail($chat_id);
+
+        try {
+            $filePath = $this->uploadDoc($request, $chat_id, $request->type);
+            $chat->reference_url = $filePath;
+            $chat->doc_name = $request->file('doc')->getClientOriginalName();
+            $chat->save();
+
+            return response()->json(['chat' => $chat]);
+        } catch (Exception $e) {
+            return response()->json(['error' => $e->getMessage()], 500);
+        }
     }
-}
     public function uploadDocument(Request $request)
     {
         $category = OpenaiGeneratorChatCategory::where('id', $request->category_id)->firstOrFail();

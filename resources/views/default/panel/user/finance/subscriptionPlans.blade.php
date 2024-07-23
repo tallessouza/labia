@@ -112,7 +112,7 @@
                                 {{ $item }}
                             </li>
                             @endforeach
-                            @if ($plan->is_team_plan)
+                            @if ($plan->is_team_plan && $plan->plan_allow_seat > 0)
                             <li class="mb-3">
                                 <span class="size-5 me-1 inline-flex items-center justify-center rounded-xl bg-primary/10 align-middle text-primary">
                                     <x-tabler-check class="size-3.5" />

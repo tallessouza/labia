@@ -111,20 +111,20 @@
                 <x-navbar.item has-dropdown>
                     <x-navbar.link label="{{ __('IAs para Gerar') }}" dropdown-trigger icon="tabler-pencil" />
                     <x-navbar.dropdown.dropdown>
-                        <x-navbar.dropdown.item>
+                        <!-- <x-navbar.dropdown.item>
                             <x-navbar.link label="{{ __('Código') }}" href="dashboard.user.openai.chat.chat" slug="grimore-6isY5" icon="tabler-device-laptop" />
-                        </x-navbar.dropdown.item>
+                        </x-navbar.dropdown.item> -->
                         @if ($setting->feature_ai_advanced_editor)
                         <x-navbar.dropdown.item>
                             <x-navbar.link label="{{ __('AI Editor') }}" href="dashboard.user.generator.index" icon="tabler-notebook" />
                         </x-navbar.dropdown.item>
                         @endif
 
-                        @if ($setting->feature_ai_writer)
+                        <!-- @if ($setting->feature_ai_writer)
                         <x-navbar.dropdown.item>
                             <x-navbar.link label="{{ __('AI Writer') }}" href="dashboard.user.openai.list" active-condition="{{ activeRoute('dashboard.user.openai.list', 'dashboard.user.openai.generator.*') }}" icon="tabler-notes" />
                         </x-navbar.dropdown.item>
-                        @endif
+                        @endif -->
 
                         @if ($settings_two->feature_ai_video)
                         <x-navbar.dropdown.item>
@@ -168,11 +168,11 @@
                         </x-navbar.dropdown.item>
                         @endif
 
-                        @if ($setting->feature_ai_chat)
+                        <!-- @if ($setting->feature_ai_chat)
                         <x-navbar.dropdown.item>
                             <x-navbar.link label="{{ __('AI Chat') }}" href="dashboard.user.openai.chat.list" icon="tabler-message-dots" active-condition="{{ activeRoute('dashboard.user.openai.chat.*') }}" />
                         </x-navbar.dropdown.item>
-                        @endif
+                        @endif -->
 
                         @if ($setting->feature_ai_code)
                         <x-navbar.dropdown.item>
@@ -182,7 +182,7 @@
 
                         @if ($setting->feature_ai_youtube)
                         <x-navbar.dropdown.item>
-                            <x-navbar.link label="{{ __('AI YouTube') }}" href="dashboard.user.openai.generator.workbook" slug="ai_youtube" icon="tabler-brand-youtube" {{-- active-condition="{{ route('dashboard.user.openai.generator.workbook', 'ai_youtube') === url()->current() }}" --}} />
+                            <x-navbar.link label="{{ __('Transcritor Youtube') }}" href="dashboard.user.openai.generator.workbook" slug="ai_youtube" icon="tabler-brand-youtube" {{-- active-condition="{{ route('dashboard.user.openai.generator.workbook', 'ai_youtube') === url()->current() }}" --}} />
                         </x-navbar.dropdown.item>
                         @endif
 
@@ -194,7 +194,7 @@
 
                         @if ($setting->feature_ai_speech_to_text)
                         <x-navbar.dropdown.item>
-                            <x-navbar.link label="{{ __('AI Speech to Text') }}" href="dashboard.user.openai.generator" slug="ai_speech_to_text" icon="tabler-microphone" />
+                            <x-navbar.link label="{{ __('Transcritor de Arquivos') }}" href="dashboard.user.openai.generator" slug="ai_speech_to_text" icon="tabler-microphone" />
                         </x-navbar.dropdown.item>
                         @endif
 

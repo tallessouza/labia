@@ -124,7 +124,8 @@ class AuthController extends Controller
             "formacao" => 17,
             "vitalicio" => 19,
             "nps" => 20,
-            "518" => 21
+            "518" => 21,
+            "8020old" => 35
         ];
 
         // Verificar se é um webhook de FORM_RESPONSE

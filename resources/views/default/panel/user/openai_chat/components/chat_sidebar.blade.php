@@ -9,7 +9,8 @@
     $models = [
         'openai' => [
             'gpt-3.5-turbo' => 'GPT-3.5 Turbo',
-            'gpt-4o' => 'GPT-4 Omni'
+            'gpt-4o' => 'GPT-4 Omni',
+            'gpt-4o-mini' => 'GPT-4o Mini'
         ],
         'anthropic' => [
             'claude-3-haiku-20240307' => 'Claude Haiku',
