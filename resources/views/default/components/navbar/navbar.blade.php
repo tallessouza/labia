@@ -45,30 +45,30 @@
 
                 <x-navbar.item has-dropdown>
                     <x-navbar.link label="{{ __('IAs por Negócio') }}" dropdown-trigger icon="tabler-building-store" />
-                    <x-navbar.dropdown.dropdown>
+                    <x-navbar.dropdown.dropdown>                        
                         <x-navbar.item>
-                            <x-navbar.link label="Social Media" href="dashboard.user.openai.list" slug="filter=Social Media" icon="tabler-users" />
+                            <x-navbar.link label="Administrativo" href="dashboard.user.openai.list" slug="filter=Administrativo" icon="tabler-device-laptop" />
+                        </x-navbar.item>
+                        <x-navbar.item>
+                            <x-navbar.link label="Branding" href="dashboard.user.openai.list" slug="filter=Branding" icon="tabler-building-store" />
                         </x-navbar.item>
                         <x-navbar.item>
                             <x-navbar.link label="Copywriting" href="dashboard.user.openai.list" slug="filter=Copywriting" icon="tabler-pencil" />
+                        </x-navbar.item>
+                        <x-navbar.item>
+                            <x-navbar.link label="E-commerce" href="dashboard.user.openai.list" slug="filter=E-commerce" icon="tabler-shopping-cart-bolt" />
                         </x-navbar.item>
                         <!-- <x-navbar.item>
                             <x-navbar.link label="Tráfego" href="dashboard.user.openai.list" slug="filter=advertising" icon="tabler-ad-circle" />
                         </x-navbar.item> -->
                         <x-navbar.item>
-                            <x-navbar.link label="Branding" href="dashboard.user.openai.list" slug="filter=Branding" icon="tabler-building-store" />
-                        </x-navbar.item>
-                        <x-navbar.item>
                             <x-navbar.link label="Marketing" href="dashboard.user.openai.list" slug="filter=Marketing" icon="tabler-target" />
-                        </x-navbar.item>
-                        <x-navbar.item>
-                            <x-navbar.link label="Conteúdo" href="dashboard.user.openai.list" slug="filter=Conteúdo" icon="tabler-movie" />
-                        </x-navbar.item>
-                        <x-navbar.item>
-                            <x-navbar.link label="Administrativo" href="dashboard.user.openai.list" slug="filter=Administrativo" icon="tabler-device-laptop" />
-                        </x-navbar.item>
+                        </x-navbar.item>                       
                         <x-navbar.item>
                             <x-navbar.link label="Produtos" href="dashboard.user.openai.list" slug="filter=Produtos" icon="tabler-brand-producthunt" />
+                        </x-navbar.item>                       
+                        <x-navbar.item>
+                            <x-navbar.link label="Social Media" href="dashboard.user.openai.list" slug="filter=Social Media" icon="tabler-users" />
                         </x-navbar.item>
                         <x-navbar.item>
                             <x-navbar.link label="Vendas" href="dashboard.user.openai.list" slug="filter=Vendas" icon="tabler-moneybag" />
