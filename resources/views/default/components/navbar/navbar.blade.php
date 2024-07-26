@@ -49,9 +49,9 @@
                         <x-navbar.item>
                             <x-navbar.link label="Administrativo" href="dashboard.user.openai.list" slug="filter=Administrativo" icon="tabler-device-laptop" />
                         </x-navbar.item>
-                        <x-navbar.item>
+                        <!-- <x-navbar.item>
                             <x-navbar.link label="Branding" href="dashboard.user.openai.list" slug="filter=Branding" icon="tabler-building-store" />
-                        </x-navbar.item>
+                        </x-navbar.item> -->
                         <x-navbar.item>
                             <x-navbar.link label="Copywriting" href="dashboard.user.openai.list" slug="filter=Copywriting" icon="tabler-pencil" />
                         </x-navbar.item>
@@ -100,6 +100,22 @@
                         <!-- <x-navbar.item>
                             <x-navbar.link label="Tratamento de Dados" href="dashboard.user.openai.chat.list" slug="filter=Tratamento de Dados" icon="tabler-file-spreadsheet" />
                         </x-navbar.item> -->
+                        <x-navbar.item has-dropdown>
+                            <x-navbar.link label="{{ __('Meus GPTS') }}" href="" icon="tabler-message-circle" dropdown-trigger />
+                            <x-navbar.dropdown.dropdown>
+                                <x-navbar.item>
+                                    <x-navbar.link label="Acessar GPTS" href="dashboard.user.openai.chat.list" slug="filter=User" icon="tabler-robot-face" />
+                                </x-navbar.item>
+                                <x-navbar.dropdown.item>
+                                    <x-navbar.dropdown.link label="{{ __('Gerenciar GPTS') }}" href="dashboard.user.openai.chat.listOwn" icon="tabler-pencil">
+                                    </x-navbar.dropdown.link>
+                                </x-navbar.dropdown.item>
+                                <x-navbar.dropdown.item>
+                                    <x-navbar.dropdown.link label="{{ __('Treinar GPTS') }}" href="dashboard.user.chatbot.index" icon="tabler-adjustments-bolt">
+                                    </x-navbar.dropdown.link>
+                                </x-navbar.dropdown.item>    
+                            </x-navbar.dropdown.dropdown>
+                            </x-navbar.item>
                         <x-navbar.item>
                             <x-navbar.link label="Todos" href="dashboard.user.openai.chat.list" />
                         </x-navbar.item>

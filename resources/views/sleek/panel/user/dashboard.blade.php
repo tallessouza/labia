@@ -219,7 +219,7 @@
                                                 class="rounded-md py-1.5"
                                                 variant="info"
                                             >
-                                                {{ __('Upgrade') }}
+                                                {{ __('Assinatura') }}
                                             </x-badge>
                                         </span>
                                     @endif
@@ -230,7 +230,7 @@
                                         >
                                             <span class="sr-only">
                                                 @if ($upgrade)
-                                                    {{ __('Upgrade') }}
+                                                    {{ __('Assinatura') }}
                                                 @elseif ($entry->active == 1)
                                                     {{ __('View') }}
                                                 @endif

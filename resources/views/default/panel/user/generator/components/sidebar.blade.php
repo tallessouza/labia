@@ -277,13 +277,13 @@
                                             <div class="@if ($upgrade) bg-background opacity-75 @endif size-full absolute left-0 top-0 z-2 transition-all">
                                                 @if ($upgrade)
                                                     <div class="absolute right-2 top-2 z-10 rounded-md bg-[#E2FFFC] px-2 py-0.5 font-medium text-black">
-                                                        {{ __('Upgrade') }}
+                                                        {{ __('Assinatura') }}
                                                     </div>
                                                     <a
                                                         class="size-full absolute left-0 top-0 inline-block overflow-hidden text-left -indent-[99999px]"
                                                         href="{{ LaravelLocalization::localizeUrl(route('dashboard.user.payment.subscription')) }}"
                                                     >
-                                                        {{ __('Upgrade') }}
+                                                        {{ __('Assinatura') }}
                                                     </a>
                                                 @elseif($item->type == 'text' or $item->type == 'code')
                                                     @if ($item->slug == 'ai_article_wizard_generator')

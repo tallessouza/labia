@@ -48,7 +48,7 @@
         size="lg"
     >
         <div class="mb-4 md:mb-0 lg:w-2/5">
-            <h3 class="mb-7">{{ __('Upgrade') }}</h3>
+            <h3 class="mb-7">{{ __('Assinatura') }}</h3>
 
             <p class="mb-3">
                 @if (Auth::user()->activePlan() != null)

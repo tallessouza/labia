@@ -139,7 +139,7 @@
                                 class="rounded-md py-1.5"
                                 variant="info"
                             >
-                                {{ __('Upgrade') }}
+                                {{ __('Assinatura') }}
                             </x-badge>
                         </span>
                     @endif

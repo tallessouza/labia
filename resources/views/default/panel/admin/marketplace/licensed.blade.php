@@ -75,7 +75,7 @@
                                     <x-tabler-reload class="size-6 group-[&.lqd-is-busy]:hidden" />
                                     <x-tabler-refresh class="size-6 hidden animate-spin group-[&.lqd-is-busy]:block" />
                                     <span class="sr-only">
-                                    {{ __('Upgrade') }}
+                                    {{ __('Assinatura') }}
                                 </span>
                                 </x-button>
                             @endif

@@ -62,7 +62,7 @@
                     @else
                         <a class="mb-0 ms-3 flex items-center gap-2 text-2xs font-medium">
                             <span class="size-2 inline-block rounded-full bg-green-500"></span>
-                            {{ __('Upgrade') }}
+                            {{ __('Assinatura') }}
                         </a>
                     @endif
                 </div>
@@ -246,7 +246,7 @@
                                         size="lg"
                                         href="{{ route('dashboard.admin.marketplace.liextension') }}"
                                 >
-                                    {{ __('Upgrade') }}
+                                    {{ __('Assinatura') }}
                                 </x-button>
                             @endif
 

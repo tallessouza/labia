@@ -119,7 +119,7 @@
                         >
                             <x-tabler-bolt class="size-4 fill-current" />
                             <span class="max-lg:hidden">
-                                {{ __('Upgrade') }}
+                                {{ __('Assinatura') }}
                             </span>
                         </x-button>
                     @endif
