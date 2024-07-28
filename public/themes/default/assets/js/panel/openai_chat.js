@@ -714,10 +714,10 @@ function updateChatButtons() {
 			let providerElement = document.getElementById('provider');
 			
 			// Verificar se os elementos existem e têm um valor
-			let model = modelElement && modelElement.value ? modelElement.value : '';
-			let provider = providerElement && providerElement.value ? providerElement.value : '';
-		//    console.log(model)
-		//    console.log(provider)
+			let model = modelElement && modelElement.value ? modelElement.value : 'gpt-4o-mini';
+			let provider = providerElement && providerElement.value ? providerElement.value : 'openai';
+		   console.log(model)
+		   console.log(provider)
 			if (stream_type == 'backend') {
 				const isChecked = realtime?.checked ? 1 : 0;
 				function implementChat(type, images) {

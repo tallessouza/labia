@@ -38,14 +38,14 @@ class GeneratorController extends Controller
 		$template_type = $request->get('template_type', 'chatbot');
 		$provider = $request->get('provider');
 		if ($provider === null || $provider === 'undefined' || $provider === '') {
-			$provider = setting('default_ai_engine', 'anthropic');
+			$provider = setting('default_ai_engine', 'openai');
 		}
 		
 		// Tratamento para o model
 		$model = $request->get('model');
 		if ($model === null || $model === 'undefined' || $model === '') {
-			$default_engine = setting('default_ai_engine', 'anthropic');
-			$model = setting($default_engine . '_default_model', 'claude-3-haiku-20240307');
+			$default_engine = setting('default_ai_engine', 'openai');
+			$model = setting($default_engine . '_default_model', 'gpt-4o-mini');
 		}
 		# If the template type is chat, then we will build a chat streamed output or other ai template streamed output
 		switch ($provider)
@@ -101,13 +101,13 @@ class GeneratorController extends Controller
         $default_ai_engine = setting('default_ai_engine', 'openai');
 
         if ($default_ai_engine == 'openai') {
-            $chat_bot = $this->settings?->openai_default_model == null ? 'gpt-3.5-turbo': $this->settings?->openai_default_model;
+            $chat_bot = $this->settings?->openai_default_model == null ? 'gpt-4o-mini': $this->settings?->openai_default_model;
         } else if ($default_ai_engine == 'gemini') {
             $chat_bot = setting('gemini_default_model');
         } else if ($default_ai_engine == 'anthropic') {
             $chat_bot = setting('claude-3-opus-20240229');
         } else {
-            $chat_bot = $this->settings?->openai_default_model == null ? 'gpt-3.5-turbo': $this->settings?->openai_default_model;
+            $chat_bot = $this->settings?->openai_default_model == null ? 'gpt-4o-mini': $this->settings?->openai_default_model;
         }
 
 		$history = [];

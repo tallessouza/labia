@@ -275,7 +275,7 @@
                             <x-navbar.link label="{{ __('Team') }}" href="dashboard.user.team.index" icon="tabler-user-plus" active-condition="{{ activeRoute('dashboard.user.team.*') }}" new />
                         </x-navbar.dropdown.item>
                         @endif
-                        <x-navbar.item has-dropdown>
+                        <!-- <x-navbar.item has-dropdown>
                             <x-navbar.link label="{{ __('Meus GPTS') }}" href="" icon="tabler-message-circle" dropdown-trigger />
                             <x-navbar.dropdown.dropdown>
                                 <x-navbar.item>
@@ -290,7 +290,7 @@
                                     </x-navbar.dropdown.link>
                                 </x-navbar.dropdown.item>    
                             </x-navbar.dropdown.dropdown>
-                            </x-navbar.item>
+                            </x-navbar.item> -->
                         </x-navbar.dropdown.dropdown>
                     </x-navbar.item>
                     <x-navbar.item>

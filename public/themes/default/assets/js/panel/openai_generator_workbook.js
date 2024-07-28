@@ -66,8 +66,10 @@ const generate = async (message_no, creativity, maximum_length, number_of_result
 		let providerElement = document.getElementById('provider');
 		
 		// Verificar se os elementos existem e têm um valor
-		let model = modelElement && modelElement.value ? modelElement.value : '';
-		let provider = providerElement && providerElement.value ? providerElement.value : '';
+		let model = modelElement && modelElement.value ? modelElement.value : 'gpt-4o-mini';
+		let provider = providerElement && providerElement.value ? providerElement.value : 'openai';
+		console.log(model)
+		   console.log(provider)
 		console.log(model)
 		console.log(provider)
 		formData.append('template_type', 'writer');
