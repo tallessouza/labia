@@ -182,7 +182,7 @@ class GeneratorController extends Controller
 		$lastThreeMessageQuery = $chat->messages()
 		->whereNotNull('input')
 		->orderBy('created_at', 'desc')
-		->take(4)
+		->take(10)
 		->get()
 		->reverse();
 
