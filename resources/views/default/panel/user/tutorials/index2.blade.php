@@ -16,6 +16,12 @@
             <div class="bg-black rounded-lg overflow-hidden mb-4">
                 <h3 id="videoTitle" class="text-lg font-semibold p-4 bg-gray-800"></h3>
                 <div class="relative" style="padding-top: 56.25%;">
+                    <div id="loadingIndicator" class="absolute inset-0 flex items-center justify-center bg-gray-800 z-10 hidden">
+                        <svg class="animate-spin h-10 w-10 text-blue-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                            <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                        </svg>
+                    </div>
                     <iframe id="videoFrame" src="" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen class="absolute top-0 left-0 w-full h-full"></iframe>
                 </div>
             </div>
@@ -71,8 +77,19 @@
         if (index >= 0 && index < tutorials.length) {
             currentVideoIndex = index;
             const tutorial = tutorials[currentVideoIndex];
-            document.getElementById('videoFrame').src = tutorial.video_url;
+            const loadingIndicator = document.getElementById('loadingIndicator');
+            const videoFrame = document.getElementById('videoFrame');
+            
+            loadingIndicator.classList.remove('hidden');
+            videoFrame.classList.add('hidden');
+            
             document.getElementById('videoTitle').textContent = tutorial.title;
+            videoFrame.src = tutorial.video_url;
+            
+            videoFrame.onload = function() {
+                loadingIndicator.classList.add('hidden');
+                videoFrame.classList.remove('hidden');
+            };
         }
     }
 
