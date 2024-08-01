@@ -18,10 +18,6 @@
                 <div class="relative" style="padding-top: 56.25%;">
                     <iframe id="videoFrame" src="" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen class="absolute top-0 left-0 w-full h-full"></iframe>
                 </div>
-                <div class="p-4 bg-gray-800 text-gray-300 text-sm">
-                    <span id="videoDuration"></span>
-                    <span id="videoViews" class="ml-4"></span>
-                </div>
             </div>
 
             <div class="flex justify-between items-center mb-6">
@@ -36,13 +32,13 @@
     </div>
 
     <!-- Barra lateral -->
-    <div class="w-1/3 bg-gray-800 flex flex-col">
+    <div class="w-1/3 bg-gray-800 bg-opacity-50 flex flex-col">
         <h2 class="text-xl font-bold p-6 bg-gray-700">Lista de Conteúdos</h2>
         <div class="overflow-y-auto flex-grow">
             <div class="space-y-1">
                 @foreach ($tutorials as $index => $tutorial)
                     <div class="group cursor-pointer" onclick="changeVideo({{ $index }})">
-                        <div class="p-4 flex items-center transition-all duration-300 ease-in-out hover:bg-gray-700 group-hover:translate-x-2">
+                        <div class="p-4 flex items-center transition-all duration-300 ease-in-out group-hover:bg-gray-700 group-hover:translate-x-2">
                             <div class="bg-gray-600 text-gray-300 rounded-full w-8 h-8 flex items-center justify-center mr-4 flex-shrink-0">
                                 {{ $index + 1 }}
                             </div>
@@ -61,6 +57,12 @@
     </div>
 </div>
 
+<style>
+    .group:hover .group-hover\:translate-x-2 {
+        transform: translateX(0.5rem);
+    }
+</style>
+
 <script>
     const tutorials = @json($tutorials);
     let currentVideoIndex = 0;
@@ -71,8 +73,6 @@
             const tutorial = tutorials[currentVideoIndex];
             document.getElementById('videoFrame').src = tutorial.video_url;
             document.getElementById('videoTitle').textContent = tutorial.title;
-            document.getElementById('videoDuration').textContent = tutorial.duration;
-            document.getElementById('videoViews').textContent = '2 views'; // Você pode ajustar isso conforme necessário
         }
     }
 
