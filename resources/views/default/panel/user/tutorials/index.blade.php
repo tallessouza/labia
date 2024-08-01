@@ -4,7 +4,7 @@
 @section('content')
 <div class="flex h-screen bg-gray-900 text-gray-100">
     <!-- Área principal de conteúdo -->
-    <div class="flex-grow p-6 flex flex-col">
+    <div class="flex-grow p-6 flex flex-col overflow-hidden main-content">
         <div class="mb-6 flex items-center">
             <a href="#" class="text-lg font-semibold flex items-center text-gray-300">
                 <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
@@ -37,20 +37,20 @@
         </div>
     </div>
 
-    <!-- Barra lateral -->
-    <div class="w-1/3 bg-gray-800 bg-opacity-50 flex flex-col">
+    <!-- Barra lateral / Lista de conteúdos -->
+    <div class="w-1/3 bg-gray-800 bg-opacity-50 flex flex-col overflow-hidden content-list">
         <h2 class="text-xl font-bold p-6 bg-gray-700">Lista de Conteúdos</h2>
         <div class="overflow-y-auto flex-grow">
             <div class="space-y-1">
                 @foreach ($tutorials as $index => $tutorial)
                     <div class="group cursor-pointer" onclick="changeVideo({{ $index }})">
-                        <div class="p-4 flex items-center transition-all duration-300 ease-in-out group-hover:bg-gray-700 group-hover:translate-x-2">
-                            <div class="bg-gray-600 text-gray-300 rounded-full w-8 h-8 flex items-center justify-center mr-4 flex-shrink-0">
+                        <div class="p-4 flex items-start transition-all duration-300 ease-in-out group-hover:bg-gray-700 group-hover:translate-x-2">
+                            <div class="bg-gray-600 text-gray-300 rounded-full w-8 h-8 flex items-center justify-center mr-4 flex-shrink-0 mt-1">
                                 {{ $index + 1 }}
                             </div>
                             <div class="flex-grow">
                                 <h3 class="font-semibold text-gray-100">{{ $tutorial['title'] }}</h3>
-                                <p class="text-sm text-gray-400">{{ $tutorial['duration'] }}</p>
+                                <p class="text-sm text-gray-400 mt-1">{{ $tutorial['duration'] }}</p>
                             </div>
                         </div>
                         @if (!$loop->last)
@@ -66,6 +66,24 @@
 <style>
     .group:hover .group-hover\:translate-x-2 {
         transform: translateX(0.5rem);
+    }
+
+    @media (max-width: 768px) {
+        .flex {
+            display: block;
+            overflow-y: auto;
+            height: auto;
+        }
+        .main-content {
+            width: 100%;
+            height: auto;
+            overflow-y: visible;
+        }
+        .content-list {
+            width: 100%;
+            height: auto;
+            max-height: none;
+        }
     }
 </style>
 
