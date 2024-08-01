@@ -73,6 +73,13 @@ Route::group(['prefix' => LaravelLocalization::setLocale(), 'middleware' => ['lo
 				Route::get('', 'index')->name('index');
 			});
 			Route::group([
+				'as' => 'tutorials2.',
+				'prefix' => 'tutorials2',
+				'controller' => TutorialsController::class,
+			], function () {
+				Route::get('', 'index2')->name('index2');
+			});
+			Route::group([
 				'as' => 'chatbot.',
 				'prefix' => 'chatbot/{chatbot}',
 				'controller' => UserChatbotTrainingController::class,
