@@ -309,7 +309,10 @@
                     <x-navbar.item>
                         <x-navbar.link label="{{ __('Whatsapp Lendário') }}" href="dashboard.user.whatsapp" icon="tabler-brand-whatsapp" />
                     </x-navbar.item>
-
+                    
+                    <x-navbar.item>
+                        <x-navbar.link label="{{ __('Tutoriais') }}" href="dashboard.user.tutorials.index"  icon="tabler-brand-youtube" />
+                    </x-navbar.item>
 
 
 
@@ -321,14 +324,14 @@
                 <x-navbar.item>
                     <x-navbar.link label="{{ __('Support') }}" href="dashboard.support.list" active-condition="{{ activeRoute('dashboard.support.*') }}" icon="tabler-lifebuoy" />
                 </x-navbar.item>
-                <a class="nav-link lqd-navbar-link flex items-center gap-2 ps-navbar-link-ps pe-navbar-link-pe pt-navbar-link-pt pb-navbar-link-pb rounded-xl relative transition-colors group/link
+                <!-- <a class="nav-link lqd-navbar-link flex items-center gap-2 ps-navbar-link-ps pe-navbar-link-pe pt-navbar-link-pt pb-navbar-link-pb rounded-xl relative transition-colors group/link
 		                hover:bg-navbar-background-hover/5 hover:text-navbar-foreground-hover
 		                [&.active]:bg-navbar-background-active/5 [&.active]:text-navbar-foreground-active
 		                dark:[&.active]:bg-transparent
 		                dark:before:w-1.5 dark:before:h-full dark:before:absolute dark:before:top-0 dark:before:-start-2 dark:before:bg-primary dark:before:rounded-e-lg dark:before:opacity-0
 		                dark:[&.active]:before:opacity-100 " href="https://hotmart.com/pt-br/club/formacao-lendaria/products/3922448/" icon="tabler-brand-whatsapp" target="_blank">
                         <i class="fas fa-external-link-alt"></i> Tutoriais
-                    </a>
+                    </a> -->
 
                 @if (App\Models\Integration\Integration::query()->whereHas('hasExtension')->count())
                 <x-navbar.item>
