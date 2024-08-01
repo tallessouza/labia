@@ -13,8 +13,8 @@
                     <x-button>
                         <x-tabler-plus class="size-4" />
                         {{ __('Adicionar Tutorial') }}
-                    </x-button> -->
-                </div>
+                    </x-button>
+                </div> -->
             </div>
 
             <!-- <div class="mb-4">
@@ -28,7 +28,7 @@
                 <button class="px-4 py-2 rounded-full bg-background">Edição</button>
             </div> -->
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                 @foreach ($tutorials as $tutorial)
                     <x-card class="flex flex-col">
                         <div class="mb-4">
