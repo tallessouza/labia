@@ -45,6 +45,7 @@ use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 use App\Http\Controllers\WhatsappController;
+use App\Http\Controllers\TutorialsController;
 Route::group(['prefix' => LaravelLocalization::setLocale(), 'middleware' => ['localeSessionRedirect', 'localizationRedirect', 'localeViewPath']], function () {
 
 	Route::prefix('dashboard')
@@ -64,7 +65,13 @@ Route::group(['prefix' => LaravelLocalization::setLocale(), 'middleware' => ['lo
 			Route::post('/whatsapp/logout', [WhatsappController::class, 'logout'])->name('whatsapp.logout');
 			Route::post('/regenerate', [WhatsappController::class, 'regenerate'])->name('whatsapp.regenerate');
 			Route::get('/check-connection', [WhatsappController::class, 'checkConnection'])->name('whatsapp.checkConnection');
-
+			Route::group([
+				'as' => 'tutorials.',
+				'prefix' => 'tutorials',
+				'controller' => TutorialsController::class,
+			], function () {
+				Route::get('', 'index')->name('index');
+			});
 			Route::group([
 				'as' => 'chatbot.',
 				'prefix' => 'chatbot/{chatbot}',
