@@ -22,6 +22,8 @@
         ]
     ];
     $team = Auth::user()->getAttribute('team_id');
+    $admin = Auth::user()->type == 'admin'
+
 @endphp
 
 <x-card
@@ -121,7 +123,7 @@
                     <x-tabler-plus class="size-5" />
                     {{ __('New Conversation') }}
                 </x-button>
-                @if ($plan != '' || $team)
+                @if ($plan != '' || $team || $admin)
                 <h2>{{ __('Modelos') }} </h2>
                 <x-forms.input
                     id="provider"

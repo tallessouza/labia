@@ -6,10 +6,10 @@
     <!-- Área principal de conteúdo -->
     <div class="flex-grow p-6 flex flex-col overflow-hidden main-content">
         <div class="mb-6 flex items-center">
-            <a href="#" class="text-lg font-semibold flex items-center text-gray-300">
+            <!-- <a href="#" class="text-lg font-semibold flex items-center text-gray-300">
                 <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
                 Voltar
-            </a>
+            </a> -->
         </div>
 
         <div class="flex-grow flex flex-col">
@@ -84,6 +84,10 @@
             height: auto;
             max-height: none;
         }
+        /* Ocultar completamente o indicador de carregamento no mobile */
+        #loadingIndicator {
+            display: none !important;
+        }
     }
 </style>
 
@@ -98,16 +102,33 @@
             const loadingIndicator = document.getElementById('loadingIndicator');
             const videoFrame = document.getElementById('videoFrame');
             
-            loadingIndicator.classList.remove('hidden');
+            // Verificar se é um dispositivo móvel
+            const isMobile = window.innerWidth <= 768;
+            
+            if (!isMobile) {
+                loadingIndicator.classList.remove('hidden');
+            }
             videoFrame.classList.add('hidden');
             
             document.getElementById('videoTitle').textContent = tutorial.title;
-            videoFrame.src = tutorial.video_url;
             
-            videoFrame.onload = function() {
-                loadingIndicator.classList.add('hidden');
-                videoFrame.classList.remove('hidden');
-            };
+            // Usar setTimeout para dar um breve momento antes de carregar o vídeo
+            setTimeout(() => {
+                videoFrame.src = tutorial.video_url;
+                
+                const hideLoading = () => {
+                    if (!isMobile) {
+                        loadingIndicator.classList.add('hidden');
+                    }
+                    videoFrame.classList.remove('hidden');
+                };
+
+                videoFrame.onload = hideLoading;
+                videoFrame.onerror = hideLoading;
+
+                // Timeout de segurança reduzido para dispositivos móveis
+                setTimeout(hideLoading, isMobile ? 1000 : 5000);
+            }, 50);
         }
     }
 

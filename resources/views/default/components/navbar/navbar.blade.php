@@ -209,11 +209,11 @@
                         </x-navbar.dropdown.item>
                         @endif
 
-                        @if ($setting->feature_ai_youtube)
+                        <!-- @if ($setting->feature_ai_youtube)
                         <x-navbar.dropdown.item>
                             <x-navbar.link label="{{ __('Transcritor Youtube') }}" href="dashboard.user.openai.generator.workbook" slug="ai_youtube" icon="tabler-brand-youtube" {{-- active-condition="{{ route('dashboard.user.openai.generator.workbook', 'ai_youtube') === url()->current() }}" --}} />
                         </x-navbar.dropdown.item>
-                        @endif
+                        @endif -->
 
                         @if ($setting->feature_ai_rss)
                         <x-navbar.dropdown.item>

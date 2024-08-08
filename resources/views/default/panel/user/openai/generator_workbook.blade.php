@@ -38,6 +38,7 @@
         ]
     ];
     $team = Auth::user()->getAttribute('team_id');
+    $admin = Auth::user()->type == 'admin'
 
 @endphp
 @extends('panel.layout.app', ['disable_tblr' => true])
@@ -302,7 +303,7 @@
 
                             @default
                         @endswitch
-                        @if ($plan != '' || $team)
+                        @if ($plan != '' || $team || $admin)
                         <h2>{{ __('Modelos') }} </h2>
                         <x-forms.input
                             id="provider"
